@@ -32,7 +32,7 @@ powershell -Command "& {Expand-Archive -Path '%php_downloaded_file%' -force -Des
 if exist "C:\Apache24" rmdir /S /Q "C:\Apache24"
 
 :: Mueve la carpeta descomprimida a C:\
-move /Y "%unzipped_folder%" "C:\"
+move /Y "%unzipped_folder%" "C:\PHP"
 
 :: Entra en la carpeta bin y ejecuta el comando
 cd "C:\Apache24\bin"
