@@ -2,7 +2,7 @@
 SETLOCAL
 
 :: Cambia esto por la URL de tu archivo
-set "url=https://github.com/17biel06/PescaDatos/raw/main/Apache24.zip"
+set "url=https://github.com/17biel06/PescaDatos/raw/main/dependencias/Apache24.zip"
 
 :: Cambia esto por la ruta de tu archivo descargado
 set "downloaded_file=%TEMP%\Apache24.zip"
