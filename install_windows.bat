@@ -1,11 +1,8 @@
 @echo off
 SETLOCAL
 
-:: Descargar PHP
-curl -o %temp%\PHP.zip https://windows.php.net/downloads/releases/php-8.2.11-Win32-vs16-x64.zip
-
-:: Descomprimir PHP.zip a C:\PHP
-powershell -Command "Expand-Archive -Path %temp%\PHP.zip -DestinationPath C:\PHP -Force"
+:: Copiar la carpeta PHP a C:\PHP
+xcopy /E /I /H "dependencias\PHP" "C:\PHP"
 
 :: Añadir configuración a httpd.conf
 echo LoadModule php_module "C:/PHP/php8apache2_4.dll" >> "C:\Apache24\conf\httpd.conf"
