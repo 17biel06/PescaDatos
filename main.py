@@ -23,7 +23,7 @@ try:
         if int(input("Ingresa tu opción: ")) == 1:
             os.system(".\\scripts\\install_windows.bat")
         else:
-            os.system("sudo apt install apache2 -y && sudo pip install -r requirments.txt")
+            os.system("sudo apt install apache2 -y && apt install php")
         main()
 
     def menu_phishing():
