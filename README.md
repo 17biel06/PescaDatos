@@ -2,7 +2,7 @@
 Primer Proyecto programado en python3
 <br>
 <br>
-<img src=imagen.jpeg> 
+<img  width="60%" src=imagen.jpeg> 
 ## Comenzando 🚀
 
 - Ejecutar main.py e seleccionar la opcion de Instalar
