@@ -58,7 +58,7 @@ try:
         if sistema == 1:
             subprocess.call(["python", ruta_server])
         elif sistema == 2:
-            subprocess.call(["python", ruta_server])
+            subprocess.call(["python3", ruta_server])
         return ruta_server
 
     def main():
