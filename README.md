@@ -1,6 +1,8 @@
 # PescaDatos
 Primer Proyecto programado en python3
-
+<br>
+<br>
+<img src=imagen.jpeg> 
 ## Comenzando 🚀
 
 - Ejecutar main.py e seleccionar la opcion de Instalar
